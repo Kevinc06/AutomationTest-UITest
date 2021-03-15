@@ -1,5 +1,7 @@
 package uitest;
 
+import static org.junit.Assert.assertEquals;
+
 import java.util.concurrent.TimeUnit;
 
 import org.junit.After;
@@ -45,5 +47,12 @@ public class UiTest {
 		/* Page that lists items */
 		driver.findElement(By.id("det_img_11")).click();
 		driver.findElement(By.id("button_cart_11")).click();
-		}
+		
+		
+		String nameOfItem = "Collegiate 72 Tee";
+		String priceOfItem = "30.00";
+		
+		assertEquals(nameOfItem, driver.findElement(By.cssSelector("h1.ty-product-block-title")).getText());
+		assertEquals(priceOfItem, driver.findElement(By.id("sec_discounted_price_11")).getText());
+	}
 }
